@@ -59,8 +59,8 @@ const homeNotificationsTemplate = [
     "📱 If you are using mobile, please rotate your device",
     "Welcome to Gambling Education Site",
     "Minimum bet: 22 NPR",
-    "Maximum bet: 500 NPR",
-    "For educational purposes only"
+    "Maximum bet: 500 NPR"
+    
 ];
 
 // ------------------- Tabs -------------------
@@ -246,3 +246,4 @@ function showInstructions(game) {
 function closeInstructions() { document.getElementById('instructionsModal').style.display = 'none'; }
 
 showTab('home');
+
