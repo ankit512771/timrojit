@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>School Gambling Demo</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <h2>Demo Gambling Site</h2>
+        <ul>
+            <li><a href="#" onclick="showTab('home')">Home</a></li>
+            <li><a href="#" onclick="showTab('loginPage')">Login</a></li>
+            <li><a href="#" onclick="showTab('signupPage')">Sign Up</a></li>
+            <li id="profileLink" style="display:none;"><a href="#" onclick="showTab('profilePage')">Profile</a></li>
+            <li><a href="#" onclick="showTab('gamePage')">Games</a></li>
+        </ul>
+    </div>
+
+    <div class="main">
+        <!-- Home -->
+        <div id="home" class="tab-content">
+            <h1>Welcome to School Gambling Demo 🎮</h1>
+            <p id="homeBalance">Balance: NPR 0</p>
+            <div class="notifications">
+                <h3>Notifications</h3>
+                <div id="homeNotifications"></div>
+            </div>
+        </div>
+
+        <!-- Login -->
+        <div id="loginPage" class="tab-content">
+            <h2>Login</h2>
+            <form id="loginForm">
+                <input type="email" id="loginEmail" placeholder="Email" required>
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button type="submit">Login</button>
+            </form>
+            <p id="loginMessage"></p>
+        </div>
+
+        <!-- Sign Up -->
+        <div id="signupPage" class="tab-content">
+            <h2>Sign Up</h2>
+            <iframe
+                src="https://docs.google.com/forms/d/e/1FAIpQLSc4d3VUnl03Q7lUyOg7aUlSIwDlOCl6sygVPINP-D9yc6z15w/viewform?embedded=true"
+                width="100%" height="812" frameborder="0">Loading…</iframe>
+        </div>
+
+        <!-- Profile -->
+        <div id="profilePage" class="tab-content">
+            <h2>Your Profile</h2>
+            <p>UID: <span id="profileUID"></span></p>
+            <p>Email: <span id="profileEmail"></span></p> <br>
+
+            <p>Balance: NPR <span id="profileBalance"></span></p>
+            <br>
+
+            <div class="profile-actions">
+                <button onclick="showDepositForm()">Deposit</button>
+                <button onclick="showWithdrawForm()">Withdraw</button>
+            </div>
+
+            <div id="depositForm" class="form-container" style="display:none;">
+                <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSc1tyjssCXVAnzxc82Rb9AZfifBsF3yoLkyp-fFY50F-ofBzg/viewform?embedded=true"
+                    width="100%" height="600" frameborder="0"></iframe>
+            </div>
+            <div id="withdrawForm" class="form-container" style="display:none;">
+                <iframe
+                    src="https://docs.google.com/forms/d/e/1FAIpQLSc1tyjssCXVAnzxc82Rb9AZfifBsF3yoLkyp-fFY50F-ofBzg/viewform?embedded=true"
+                    width="100%" height="600" frameborder="0"></iframe>
+            </div>
+
+            <div class="notifications">
+                <h3>Notifications</h3>
+                <div id="profileNotifications"></div>
+            </div>
+
+            <button onclick="logoutUser()">Logout</button>
+        </div>
+
+        <!-- Games -->
+        <div id="gamePage" class="tab-content">
+            <p id="gameBalance">Balance: NPR 0</p>
+
+            <div class="game">
+                <h2>Spin & Win 🎰 <button class="howToPlayBtn" onclick="showInstructions('spin')">?</button></h2>
+                <input type="number" id="spinBet" placeholder="Bet Amount (22-500)">
+                <button onclick="spinGame()">Spin</button>
+                <p id="wheelDisplay" class="slot-display"></p>
+                <p id="spinResult"></p>
+            </div>
+
+            <div class="game">
+                <h2>Rock-Paper-Scissors ✂️ <button class="howToPlayBtn" onclick="showInstructions('rps')">?</button>
+                </h2>
+                <input type="number" id="rpsBet" placeholder="Bet Amount (22-500)">
+                <button onclick="rpsGame('rock')">Rock</button>
+                <button onclick="rpsGame('paper')">Paper</button>
+                <button onclick="rpsGame('scissors')">Scissors</button>
+                <p id="rpsResult"></p>
+            </div>
+
+            <div class="game">
+                <h2>Flip the Coin 🪙 <button class="howToPlayBtn" onclick="showInstructions('coin')">?</button></h2>
+                <input type="number" id="flipBet" placeholder="Bet Amount (22-500)">
+                <button onclick="flipCoin('head')">Head</button>
+                <button onclick="flipCoin('tail')">Tail</button>
+                <p id="flipResult"></p>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <!-- Instructions Modal -->
+    <div id="instructionsModal" class="modal">
+        <div class="modal-content">
+            <span class="closeBtn" onclick="closeInstructions()">&times;</span>
+            <p id="instructionsText"></p>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+
+</html>
